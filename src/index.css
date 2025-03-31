@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Jakarta Sans";
+  font-style: normal;
+  font-display: swap;
+  src: url("/font/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jakarta Sans";
+  font-style: italic;
+  font-display: swap;
+  src: url("/font/PlusJakartaSans-Italic-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@theme {
+  --color-primary: oklch(0.96 0.021 227.52);
+  --color-primary-dark: oklch(0.32 0.035 229.97);
+  --color-secondary: oklch(0.29 0.0453 235.34);
+  --color-accent: oklch(0.86 0.1747 110.64);
+
+  --default-font-family: "Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-primary-dark h-screen text-[clamp(0.65rem,1.5vw+0.1rem,1rem)] font-semibold;
+  }
+
+  #root {
+    @apply grid h-full;
+  }
+
+  input {
+    @apply w-full focus:outline-none;
+  }
+
+  /* Chromium based browsers */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    @apply m-0 appearance-none;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .label {
+    @apply text-primary-dark/80 text-[0.85em];
+  }
+  .input-box {
+    @apply border-primary-dark/30 grid overflow-hidden rounded-sm border-[1.8px];
+  }
+}
